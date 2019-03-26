@@ -2,5 +2,8 @@
     "blog_title": "Blog title",
     "locale": "en",
     "post_preview_number": 10,
-    "datetime_format": "%d/%m/%Y %H:%M"
+    "datetime_format": "%d/%m/%Y %H:%M",
+    "header_links": {
+        "Login": "page.php?get=login"
+    }
 }

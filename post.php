@@ -39,13 +39,15 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="style.css">
+    <!--link rel="stylesheet" href="theme.css"-->
     <style>
-        h1{
-            text-align: center;
-            margin-bottom: .2em;
+        img{
+            max-height: 50vh;
+            max-width: 100%;
+            display: block;
+            margin: .5em auto;
         }
     </style>
-    <!--link rel="stylesheet" href="theme.css"-->
 </head>
 
 <body>
@@ -70,30 +72,9 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
         </div>
     </nav>
     <div class="container">
-        <h1 class="display-3"><?php echo $conf["blog_title"];?></h1>
         <?php
-        for($i=0;$i<min($conf["post_preview_number"], count($posts)); $i++){
-            $post_md = file_get_contents($posts[$i]);
-            $post_img = [];
-            preg_match("/(?<=\]\()([\w:\/\/.-]*)/", $post_md, $post_img);
-            $post_img = count($post_img) == 0 ? "https://picsum.photos/1024/?random&$i" : $post_img[0];
-            $post_md = preg_replace("/(!\[.*\]\([\w:\/\/.-]*.*\))\n/", '', $post_md);
-            error_log($post_md);
-            $post_blocks = explode("\n\n", $post_md);
-            $Parsedown = new Parsedown();
-            $preview = $Parsedown->text(implode("\n\n", array_slice($post_blocks, 1, 2)));
-            $post_info = explode("£$",exec("cd posts && git log --reverse -n 1 --pretty=format:%at£$%an ".str_replace("posts/",'',$posts[$i])));
-            $path_components = explode("/", $posts[$i]);
-            $category = (count($path_components) == 3 ? str_replace("-", " ", $path_components[1]) : $locale["uncategorized"]);
-            echo "<a href=\"post.php?post=".urlencode($posts[$i])."\"><div class=\"card bg-dark text-white post-preview img-fluid\">
-            <div class=\"img-wrapper\"><img src=\"$post_img\" class=\"card-img-top\" alt=\"Post cover picture\"></div>
-            <div class=\"card-img-overlay\">
-                <h3 class=\"card-title\">".str_replace("# ",'',explode("\n",$post_md)[0])."</h3>
-                <p class=\"card-text\"><span class=\"badge badge-pill badge-light\">".$post_info[1]."</span> <span class=\"badge badge-pill badge-light\">".strftime($conf["datetime_format"], intval($post_info[0]))."</span> <span class=\"badge badge-pill badge-light\">$category</span></p>
-                <p class=\"card-text\">$preview</p>
-            </div>
-        </div></a>";
-        }
+        $Parsedown = new Parsedown();
+        echo $Parsedown->text(file_get_contents($_GET["post"]));
         ?>
     </div>
 </body>
