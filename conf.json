@@ -1,5 +1,6 @@
 {
     "blog_title": "Blog title",
     "locale": "en",
-    "post_preview_number": 10
+    "post_preview_number": 10,
+    "datetime_format": "%d/%m/%Y %H:%M"
 }

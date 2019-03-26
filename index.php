@@ -72,7 +72,7 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
             <div class=\"img-wrapper\"><img src=\"https://picsum.photos/1024/?random&$i\" class=\"card-img-top\" alt=\"Post cover picture\"></div>
             <div class=\"card-img-overlay\">
                 <h3 class=\"card-title\">".str_replace("# ",'',explode("\n",$post_md)[0])."</h3>
-                <p class=\"card-text\"><span class=\"badge badge-pill badge-light\">".$post_info[1]."</span> <span class=\"badge badge-pill badge-light\">Data e ora creazione</span> <span class=\"badge badge-pill badge-light\">$category</span></p>
+                <p class=\"card-text\"><span class=\"badge badge-pill badge-light\">".$post_info[1]."</span> <span class=\"badge badge-pill badge-light\">".strftime($conf["datetime_format"], intval($post_info[0]))."</span> <span class=\"badge badge-pill badge-light\">$category</span></p>
                 <p class=\"card-text\">Testo</p>
             </div>
         </div></a>";
