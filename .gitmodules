@@ -3,4 +3,4 @@
 	url = https://github.com/erusev/parsedown
 [submodule "posts"]
 	path = posts
-	url = git@github.com:eutampieri/gitcms-example.git
+	url = https://github.com/eutampieri/gitcms-example.git
