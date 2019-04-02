@@ -46,6 +46,8 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
             max-width: 100%;
             display: block;
             margin: .5em auto;
+            border-radius: .25em;
+            /*box-shadow: 1px 1px 1px black;*/
         }
     </style>
 </head>

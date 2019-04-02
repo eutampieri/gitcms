@@ -11,7 +11,7 @@ if(!is_dir("posts/.git")){
 $categories = glob("posts/*", GLOB_ONLYDIR);
 
 // The posts are markdown files inside the posts directory
-$posts = array_merge(glob("posts/*.md"), glob("posts/*/*.md"));
+$posts = glob("posts/".$_GET["category"]."/*.md");
 // Sort them by creation date
 usort($posts, create_function('$a,$b', 'return intval(exec("cd posts && git log -n 1 --pretty=format:%at ".$a)) - intval(exec("cd posts && git log -n 1 --pretty=format:%at ".$b));'));
 
@@ -70,7 +70,7 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
         </div>
     </nav>
     <div class="container">
-        <h1 class="display-4"><?php echo $conf["blog_title"];?></h1>
+        <h1 class="display-4"><?php echo $conf["blog_title"]." - ".str_replace("-"," ",$_GET["category"]);?></h1>
         <?php
         for($i=0;$i<min($conf["post_preview_number"], count($posts)); $i++){
             $post_md = file_get_contents($posts[$i]);

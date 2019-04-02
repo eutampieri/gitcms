@@ -1,3 +1,9 @@
 [submodule "tools/parsedown"]
 	path = tools/parsedown
 	url = https://github.com/erusev/parsedown
+[submodule "gitcms-example"]
+	path = gitcms-example
+	url = git@github.com:eutampieri/gitcms-example.git
+[submodule "posts"]
+	path = posts
+	url = git@github.com:eutampieri/gitcms-example.git
