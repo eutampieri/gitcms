@@ -127,6 +127,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
                 <input type="text" class="form-control" id="repo-url" name="repo_url" placeholder="<?php ___("repo-url-placeholder");?>">
             </div></div>
             <div class="mt-2"><p><?php ___("ssh-key-copy-paste");?></p> <textarea class="form-control"><?php echo get_ssh_pubkey();?></textarea></div>
+            <button type="submit" class="btn btn-primary"><?php ___("save");?></button>
         </form>
     </div>
 </body>

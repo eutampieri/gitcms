@@ -18,5 +18,6 @@
     "post-storage-remote": "Remote: GitCMS will fetch your posts from a remote server and all the posts created with GitCMS will be pushed to the server. Beware that the only read-write method is SSH.",
     "ssh-key-copy-paste": "Here is the SSH key that GitCMS will use to connect to the server if the repo is being accessed via SSH",
     "repo-url": "Repository URL",
-    "repo-url-placeholder": "Enter here the repository URL"
+    "repo-url-placeholder": "Enter here the repository URL",
+    "save": "Save"
 }
