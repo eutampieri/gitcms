@@ -13,7 +13,8 @@ function ___($str){
 
 function get_ssh_pubkey(){
     $homedir = exec("eval echo ~$USER");
-    if(!is_dir($homedir.".ssh")) exec("mkdir ".$homedir.".ssh");
-    if(!is_file($homedir."/.ssh/id_rsa.pub")) passthru("cd ~/.ssh && ssh-keygen -f id_rsa -t rsa -N ''");
+    echo $homedir;
+    if(!is_dir($homedir.".ssh")) exec("mkdir ".$homedir."/.ssh");
+    if(!is_file($homedir."/.ssh/id_rsa.pub")) exec("cd /.ssh && ssh-keygen -f id_rsa -t rsa -N ''");
     return file_get_contents($homedir."/.ssh/id_rsa.pub");
 }
