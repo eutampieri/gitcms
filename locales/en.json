@@ -1,3 +1,22 @@
 {
-    "uncategorized": "Uncategorized"
+    "__friendly_name": "English",
+    "uncategorized": "Uncategorized",
+    "gitcms-setup": "GitCMS setup",
+    "localisation": "Localisation",
+    "language": "Language",
+    "datetime": "Date and time format",
+    "formats": "Formats",
+    "formats-cheatsheet": "Formats cheatsheet",
+    "root-dir-perms-err": "The folder that contains the blog is not writeable. Please change the permissions then refresh this page",
+    "blog-title": "Website title",
+    "myblog": "My blog",
+    "post-preview-number": "Number of posts to be shown on the homepage",
+    "customisation": "Customisation",
+    "post-storage": "Post storage",
+    "post-storage-intro": "GitCMS stores the posts in a <code>git</code> repository, that can be synced to a remote server. Here you can choose what option fits your needs best",
+    "post-storage-local": "Local: a local repository will be created. You can later choose sync your posts with a server, but you <strong>cannot</strong> sync them with an existing repo",
+    "post-storage-remote": "Remote: GitCMS will fetch your posts from a remote server and all the posts created with GitCMS will be pushed to the server. Beware that the only read-write method is SSH.",
+    "ssh-key-copy-paste": "Here is the SSH key that GitCMS will use to connect to the server if the repo is being accessed via SSH",
+    "repo-url": "Repository URL",
+    "repo-url-placeholder": "Enter here the repository URL"
 }
