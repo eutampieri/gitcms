@@ -3,8 +3,9 @@
 include("tools/parsedown/Parsedown.php");
 
 // If this is the first run, init the posts repository
-if(!is_dir("posts/.git")){
-    exec("git init posts");
+if(!is_dir("posts")){
+    header("Location: setup.php");
+    die();
 }
 
 // The categories are the folders inside the posts folder
