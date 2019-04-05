@@ -103,7 +103,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
                 </div>
             </div>
             
-            <h3><?php ___("customisation");?></h3>
+            <h3><?php ___("customization");?></h3>
             <div class="form-group">
                 <label for="blog-title"><?php ___("blog-title");?></label>
                 <input type="text" class="form-control" id="blog-title" name="blog_title" placeholder="<?php ___("myblog");?>">
