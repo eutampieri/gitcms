@@ -1,5 +1,10 @@
 <?php
 require_once("../tools/tools.php");
+
+if(is_dir("../posts")){
+    die();
+}
+
 //Load the configuration from conf.json
 $conf = json_decode(file_get_contents("../conf.json"), true);
 $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), true);
@@ -35,7 +40,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/.">GitCMS</a>
+        <a class="navbar-brand" href="/.">gitCMS</a>
     </nav>
     <div class="container">
         <h1 class="display-4"><?php ___("gitcms-setup");?></h1>

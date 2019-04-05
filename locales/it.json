@@ -1,5 +1,23 @@
 {
     "__friendly_name": "Italiano",
-    "uncategorized": "Nessuna categoria",
-    "gitcms-setup": "Configura GitCMS"
+    "uncategorized": "Non catalogato",
+    "gitcms-setup": "Configura gitCMS",
+    "localisation": "Impostazioni regionali",
+    "language": "Lingua",
+    "datetime": "Formato data e ora",
+    "formats": "Formati",
+    "formats-cheatsheet": "Bigino dei formati",
+    "root-dir-perms-err": "La cartella che contiene il blog non è scrivibile. Cambia i permessi e poi aggiorna la pagina",
+    "blog-title": "Titolo del sito",
+    "myblog": "Il mio blog",
+    "post-preview-number": "Numero di post da mostrare nella homepage",
+    "customization": "Personalizzazione",
+    "post-storage": "Memorizzazione dei post",
+    "post-storage-intro": "gitCMS salva i post in un repository <code>git</code>, che può essere sincronizzato con un server remoto. QUi puoi scegliere quale opzione soddisfa meglio le tue esigenze",
+    "post-storage-local": "Locale: verrà creato un repository locale. Puoi scegliere in seguito di sincronizzare i tuoi post con un server, ma <strong>non</strong> potrai sincronizzarli con un repository esistente",
+    "post-storage-remote": "Remoto: gitCMS scaricherà i post da un server remoto e tutti i post creati con gitCMS saranno caricati sul server. L'unico metodo di sincronizzazione in lettura e scrittura attualmente supportato è SSH.",
+    "ssh-key-copy-paste": "questa è la chiave SSH che gitCMS userà per connettersi al server se si accede al repo attraverso il protocollo SSH",
+    "repo-url": "URL del repository",
+    "repo-url-placeholder": "Inserisci l'URL del repository",
+    "save": "Salva"
 }
