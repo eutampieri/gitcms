@@ -1,5 +1,5 @@
 <?php
-//header("Location: ..");
+header("Location: ..");
 
 if(is_dir("../posts")){
     die();

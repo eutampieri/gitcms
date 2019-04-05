@@ -121,11 +121,11 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
             <h3><?php ___("post-storage");?></h3>
             <p><?php ___("post-storage-intro");?></p>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="post_storage" id="local" value="option1" checked>
+                <input class="form-check-input" type="radio" name="post_storage" id="local" value="local" checked>
                 <label class="form-check-label" for="local"><?php ___("post-storage-local");?></label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="post_storage" id="remote" value="option2">
+                <input class="form-check-input" type="radio" name="post_storage" id="remote" value="remote">
                 <label class="form-check-label" for="remote"><?php ___("post-storage-remote");?></label>
             <div class="form-group">
                 <label for="repo-url"><?php ___("repo-url");?></label>
