@@ -52,7 +52,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
                 <select class="form-control" id="language" name="locale">
                     <?php
                     foreach(glob("../locales/*.json") as $l){
-                        echo "<option value=\"".explode("/", explode(".", $l)[1])[1]."\">".json_decode(file_get_contents($l), true)["__friendly_name"]."</option>\n";
+                        echo "<option value=\"".explode("/", explode(".", $l)[0])[1]."\">".json_decode(file_get_contents($l), true)["__friendly_name"]."</option>\n";
                     }
                     ?>
                 </select>
