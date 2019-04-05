@@ -1,5 +1,5 @@
 <?php
-header("Location: ..");
+//header("Location: ..");
 
 if(is_dir("../posts")){
     die();
@@ -19,7 +19,7 @@ switch ($_POST["post_storage"]) {
         exec("cd .. && mkdir posts && cd posts && git init posts");
         break;
     case 'remote':
-        exec("cd .. && git clone ".$_POST["repo_url"]." posts");
+        passthru("cd .. && git clone ".$_POST["repo_url"]." posts");
     default:
         break;
 }

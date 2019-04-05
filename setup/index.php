@@ -49,7 +49,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
             <h3><?php ___("localisation");?></h3>
             <div class="form-group">
                 <label for="language"><?php ___("language");?></label>
-                <select class="form-control" id="language" name="language">
+                <select class="form-control" id="language" name="locale">
                     <?php
                     foreach(glob("../locales/*.json") as $l){
                         echo "<option value=\"".explode("/", explode(".", $l)[1])[1]."\">".json_decode(file_get_contents($l), true)["__friendly_name"]."</option>\n";
@@ -60,7 +60,7 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
 
             <div class="form-group">
                 <label for="datetime"><?php ___("datetime");?></label>
-                <input type="text" class="form-control" id="datetime" value="%d/%m/%Y %H:%M">
+                <input name="datetime_format" type="text" class="form-control" id="datetime" value="%d/%m/%Y %H:%M">
                 <button class="mt-2 btn btn-secondary" type="button" data-toggle="collapse" data-target="#dropdownDateTimeFmts" aria-controls="dropdownDateTimeFmts" aria-expanded="false">
                     <?php ___("formats-cheatsheet");?>
                 </button>
