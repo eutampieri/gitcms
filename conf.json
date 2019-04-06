@@ -3,7 +3,6 @@
     "locale": "en",
     "post_preview_number": 10,
     "datetime_format": "%d/%m/%Y %H:%M",
-    "header_links": {
-        "Login": "page.php?get=login"
-    }
+    "header_links": {},
+    "auth_plugin": "default_auth"
 }
