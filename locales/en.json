@@ -23,5 +23,7 @@
     "admin-setup": "Administrator account",
     "username": "Username",
     "password": "Password",
-    "name": "Name"
+    "name": "Name",
+    "no-git-err": "It appears that <code>git</code> is not installed in your system. Being a mandatory dependency, the setup cannot go on.",
+    "no-ssh-err": "It appears that no SSH client is available on your system. You may not be able to fully use gitCMS."
 }

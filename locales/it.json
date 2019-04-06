@@ -23,6 +23,7 @@
     "admin-setup": "Account dell'amministratore",
     "username": "Nome utente",
     "password": "Password",
-    "name": "Nome"
-
+    "name": "Nome",
+    "no-git-err": "Sembra che <code>git</code> non sia installato sulla tua macchina. Essendo indispensabile, l'installazione non può procedere.",
+    "no-ssh-err": "Sembra che non ci sia nessun client SSH disponibile sulla tua macchina. Non sarai in grado di usare appieno gitCMS."
 }

@@ -45,6 +45,9 @@ $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), 
     <div class="container">
         <h1 class="display-4"><?php ___("gitcms-setup");?></h1>
         <div class="alert alert-danger<?php echo is_writable(dirname( dirname(__FILE__) ))?" d-none":"";?>" role="alert"><?php echo ___("root-dir-perms-err");?></div>
+        <div class="alert alert-danger<?php echo exec("which git")!=""?" d-none":"";?>" role="alert"><?php echo ___("no-git-err");?></div>
+        <div class="alert alert-warning<?php echo exec("which ssh")!=""?" d-none":"";?>" role="alert"><?php echo ___("no-ssh-err");?></div>
+
         <form method="POST" action="setup.php">
             <h3><?php ___("localisation");?></h3>
             <div class="form-group">
