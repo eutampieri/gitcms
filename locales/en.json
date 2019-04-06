@@ -19,5 +19,9 @@
     "ssh-key-copy-paste": "Here is the SSH key that gitCMS will use to connect to the server if the repo is being accessed via SSH",
     "repo-url": "Repository URL",
     "repo-url-placeholder": "Enter here the repository URL",
-    "save": "Save"
+    "save": "Save",
+    "admin-setup": "Administrator account",
+    "username": "Username",
+    "password": "Password",
+    "name": "Name"
 }
