@@ -36,7 +36,7 @@ class Auth implements AuthPlugin
         $stmt = $auth_db->prepare("SELECT * FROM `session` WHERE id = :id AND expiration > :time_now AND backend = 'default_auth'");
         $stmt->bindValue(":time_now", time());
         $stmt->bindParam(":id", $session_id);
-        $stmt->execute()
+        $stmt->execute();
         $found_session = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return count($found_session) > 0 ? $found_session : false;
     }
