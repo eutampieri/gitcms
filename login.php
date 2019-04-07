@@ -27,7 +27,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $conf["lang"];?>">
+<html lang="<?php echo $conf["locale"];?>">
 
 <head>
     <meta charset="UTF-8">
