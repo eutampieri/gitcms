@@ -48,7 +48,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         <h1 class="display-4"><?php ___("login");?></h1>
         <div class="alert alert-danger<?php echo $error === null ? " d-none" : "";?>" role="alert"><?php echo $error;?></div>
 
-        <form method="POST" action="setup.php">
+        <form method="POST" action="login.php">
             <div class="form-group">
                 <label for="username"><?php ___("username");?></label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="<?php ___("username");?>">

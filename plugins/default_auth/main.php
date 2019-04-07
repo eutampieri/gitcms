@@ -55,7 +55,7 @@ class Auth implements AuthPlugin
     public function login($username, $password){
         $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
         $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $user_id = check_credentials($username, $password);
+        $user_id = $this->check_credentials($username, $password);
         if($user_id !== false){
             $session_id = $this->create_session($user_id);
             setcookie("gitcms_session", $session_id, time()+$this->session_duration);
