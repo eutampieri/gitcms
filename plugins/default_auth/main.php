@@ -1,7 +1,7 @@
 <?php
 require_once("auth_interface.php");
 
-$auth_db = new PDO("sqlite:res/dati-menu.db");
+$auth_db = new PDO("sqlite:auth.db");
 $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $auth_init_queries = [
@@ -56,7 +56,7 @@ class Auth implements AuthPlugin
         return $user_id;
     }
 
-    public function ger_user_info($session_id){
+    public function get_user_info($session_id){
         $stmt = $auth_db->prepare("SELECT `name` as display_name FROM `session`, user WHERE backend='default_auth' AND `user_id` = username AND id = :id LIMIT 1");
         $stmt->bindParam(":id", $session_id);
         return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];

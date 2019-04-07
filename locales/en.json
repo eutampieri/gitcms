@@ -25,5 +25,9 @@
     "password": "Password",
     "name": "Name",
     "no-git-err": "It appears that <code>git</code> is not installed in your system. Being a mandatory dependency, the setup cannot go on.",
-    "no-ssh-err": "It appears that no SSH client is available on your system. You may not be able to fully use gitCMS."
+    "no-ssh-err": "It appears that no SSH client is available on your system. You may not be able to fully use gitCMS.",
+    "login-failed": "The credentials you supplied were invalid. Try again.",
+    "session-expired": "The session has expired. Please, log in again",
+    "login": "Login",
+    "signin": "Sign in"
 }
