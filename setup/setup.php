@@ -17,7 +17,7 @@ foreach($_POST as $key => $value){
 
 switch ($_POST["post_storage"]) {
     case 'local':
-        exec("cd .. && mkdir posts && cd posts && git init posts");
+        exec("cd .. && mkdir posts && cd posts && git init");
         break;
     case 'remote':
         passthru("cd .. && git clone ".$_POST["repo_url"]." posts");
