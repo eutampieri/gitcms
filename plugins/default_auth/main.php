@@ -4,7 +4,7 @@ require_once("auth_interface.php");
 $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
 $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $auth_init_queries = [
-    "CREATE TABLE IF NOT EXISTS user (username TEXT PRIMARY KEY, `password` TEXT, `name` TEXT);",
+    "CREATE TABLE IF NOT EXISTS user (id TEXT PRIMARY KEY, username TEXT, `password` TEXT, `name` TEXT);",
     "CREATE TABLE IF NOT EXISTS `session` (id TEXT, `user_id` TEXT, backend TEXT, expiration INT)"
 ];
 foreach($auth_init_queries as $qry){
