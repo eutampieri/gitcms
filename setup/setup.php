@@ -8,7 +8,7 @@ if(is_dir("../posts")){
 
 $conf = json_decode(file_get_contents("../conf.json"), true);
 
-$exclude_from_settings_file = ["repo_url", "post_storage", "username", "password"];
+$exclude_from_settings_file = ["repo_url", "post_storage", "username", "password", "name"];
 
 foreach($_POST as $key => $value){
     if(in_array($key, $exclude_from_settings_file)) continue;
