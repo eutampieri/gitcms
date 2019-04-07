@@ -1,3 +1,7 @@
 {
-    "uncategorized": "Uncategorized"
+    "uncategorized": "Uncategorized",
+    "login-failed": "The credentials you supplied were invalid. Try again.",
+    "session-expired": "The session has expired. Please, log in again",
+    "login": "Login",
+    "signin": "Sign in"
 }

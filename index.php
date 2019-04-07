@@ -2,7 +2,7 @@
 
 include("tools/parsedown/Parsedown.php");
 
-// If this is the first run, init the posts repository
+// If this is the first run, go to the setup
 if(!is_dir("posts")){
     header("Location: setup.php");
     die();
