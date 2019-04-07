@@ -28,3 +28,5 @@ switch ($_POST["post_storage"]) {
 $auth = new Auth();
 
 $auth->add_user($_POST["username"], $_POST["password"], $_POST["name"]);
+
+file_put_contents("../conf.json", json_encode($conf));

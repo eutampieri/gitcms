@@ -1,7 +1,7 @@
 <?php
 require_once("auth_interface.php");
 
-$auth_db = new PDO("sqlite:auth.db");
+$auth_db = new PDO("sqlite:".dirname(__FILE__)."auth.db");
 $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $auth_init_queries = [
