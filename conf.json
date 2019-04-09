@@ -1,8 +1,1 @@
-{
-    "blog_title": "Blog title",
-    "locale": "en",
-    "post_preview_number": 10,
-    "datetime_format": "%d/%m/%Y %H:%M",
-    "header_links": {},
-    "auth_plugin": "default_auth"
-}
+{"blog_title":"Eugenio's blog","locale":"it","post_preview_number":"10","datetime_format":"%d\/%m\/%Y %H:%M","header_links":[],"auth_plugin":"default_auth"}

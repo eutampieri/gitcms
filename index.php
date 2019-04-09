@@ -1,6 +1,7 @@
 <?php
 
 include("tools/parsedown/Parsedown.php");
+include("tools/tools.php");
 
 // If this is the first run, go to the setup
 if(!is_dir("posts")){
@@ -19,6 +20,9 @@ usort($posts, create_function('$a,$b', 'return intval(exec("cd posts && git log 
 //Load the configuration from conf.json
 $conf = json_decode(file_get_contents("conf.json"), true);
 $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), true);
+
+require_once("plugins/".$conf["auth_plugin"]."/main.php");
+$auth = new Auth();
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $conf["locale"];?>">
@@ -66,9 +70,12 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
                 foreach($conf["header_links"] as $entry=>$link){
                     echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"".$link."\">".$entry."</a></li>";
                 }
+                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"login.php\">".__($auth->check_session($_COOKIE["gitcms_session"]) !== false ? "dashboard" : "signin")."</a></li>";
                 ?>
             </ul>
         </div>
+        <?php error_log(json_encode($auth->get_user_info($_COOKIE["gitcms_session"])));?>
+        <span class="ml-auto d-none d-lg-inline-block">Benvenuto, <?php echo $auth->get_user_info($_COOKIE["gitcms_session"])["display_name"];?></span>
     </nav>
     <div class="container">
         <h1 class="display-4"><?php echo $conf["blog_title"];?></h1>
@@ -79,7 +86,6 @@ $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), tru
             preg_match("/(?<=\]\()([\w:\/\/.-]*)/", $post_md, $post_img);
             $post_img = count($post_img) == 0 ? ""/*"https://picsum.photos/1024/?random&$i"*/ : $post_img[0];
             $post_md = preg_replace("/(!\[.*\]\([\w:\/\/.-]*.*\))\n/", '', $post_md);
-            error_log($post_md);
             $post_blocks = explode("\n\n", $post_md);
             $Parsedown = new Parsedown();
             $preview = $Parsedown->text(implode("\n\n", array_slice($post_blocks, 1, 2)));
