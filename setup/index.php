@@ -1,7 +1,7 @@
 <?php
 require_once("../tools/tools.php");
 
-if(is_dir("../posts")){
+if(is_dir("../psosts")){
     die();
 }
 
