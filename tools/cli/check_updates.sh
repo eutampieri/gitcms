@@ -9,6 +9,8 @@ if [ $LOCAL = $REMOTE ]; then
     echo "0"
 elif [ $LOCAL = $BASE ]; then
     echo "1"
+elif [ $REMOTE = $BASE ]; then
+    echo "2"
 else
     echo "-1"
 fi

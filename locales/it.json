@@ -30,5 +30,10 @@
     "session-expired": "La tua sessione è scaduta. Per proseguire, devi autenticarti nuovamente",
     "login": "Autenticazione",
     "signin": "Entra",
-    "auth-plugin": "Metodo di autenticazione"
+    "auth-plugin": "Metodo di autenticazione",
+    "post-title": "Titolo",
+    "post-author": "Autore",
+    "post-last-update": "Ultimo aggiornamento",
+    "post-category": "Categoria",
+    "posts": "Articoli"
 }

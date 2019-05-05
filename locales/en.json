@@ -33,5 +33,10 @@
     "update-available": "An update is available!",
     "update-now": "Update now",
     "dashboard": "Dashboard",
-    "auth-plugin": "Authentication method"
+    "auth-plugin": "Authentication method",
+    "post-title": "Title",
+    "post-author": "Author",
+    "post-last-update": "Last updated",
+    "post-category": "Category",
+    "posts": "Posts"
 }
