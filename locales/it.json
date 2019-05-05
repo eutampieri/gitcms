@@ -29,5 +29,6 @@
     "login-failed": "Le tue credenziali non sono state riconosciute. Prova di nuovo.",
     "session-expired": "La tua sessione è scaduta. Per proseguire, devi autenticarti nuovamente",
     "login": "Autenticazione",
-    "signin": "Entra"
+    "signin": "Entra",
+    "auth-plugin": "Metodo di autenticazione"
 }

@@ -46,6 +46,18 @@ $update_available = exec(dirname(dirname(__FILE__))."/tools/cli/check_updates.sh
 
         <h1 class="display-4"><?php ___("dashboard");?></h1>
         <h2><?php ___("posts");?></h2>
+        <!--div class="form-group">
+            <label for="language"><?php ___("auth-plugin");?></label>
+            <select class="form-control" id="language" name="auth_plugin">
+                <?php
+                foreach(glob("../plugins/*/auth.plugtype") as $auth_plugin){
+                    $plugin_desc = file_get_contents($auth_plugin);
+                    $plugin_name = dirname($auth_plugin);
+                    echo "<option value=\"$plugin_name\">$plugin_name</option>\n";
+                }
+                ?>
+            </select>
+        </div-->
         <div class="table-responsive">
             <table class="table">
             <thead><tr>

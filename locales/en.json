@@ -32,5 +32,6 @@
     "signin": "Sign in",
     "update-available": "An update is available!",
     "update-now": "Update now",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "auth-plugin": "Authentication method"
 }
