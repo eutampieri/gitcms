@@ -4,7 +4,7 @@ include("tools/parsedown/Parsedown.php");
 
 // If this is the first run, init the posts repository
 if(!is_dir("posts")){
-    header("Location: setup");
+    header("Location: setup/");
     die();
 }
 
