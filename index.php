@@ -4,7 +4,7 @@ include("tools/parsedown/Parsedown.php");
 
 // If this is the first run, go to the setup
 if(!is_dir("posts")){
-    header("Location: setup");
+    header("Location: setup/");
     die();
 }
 
