@@ -10,7 +10,7 @@ $conf = json_decode(file_get_contents("../conf.json"), true);
 $locale = json_decode(file_get_contents("../locales/".$conf["locale"].".json"), true);
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $conf["lang"];?>">
+<html lang="<?php echo $conf["locale"];?>">
 
 <head>
     <meta charset="UTF-8">

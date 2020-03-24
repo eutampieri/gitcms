@@ -1,11 +1,10 @@
 <?php
 require_once("auth_interface.php");
 
-$auth_db = new PDO("sqlite:res/dati-menu.db");
+$auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
 $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $auth_init_queries = [
-    "CREATE TABLE IF NOT EXISTS user (username TEXT PRIMARY KEY, `password` TEXT, `name` TEXT);",
+    "CREATE TABLE IF NOT EXISTS user (id TEXT PRIMARY KEY, username TEXT, `password` TEXT, `name` TEXT);",
     "CREATE TABLE IF NOT EXISTS `session` (id TEXT, `user_id` TEXT, backend TEXT, expiration INT)"
 ];
 foreach($auth_init_queries as $qry){
@@ -20,6 +19,8 @@ class Auth implements AuthPlugin
     public $rw_users = true;
 
     public function check_credentials($user, $password){
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $auth_db->prepare("SELECT * FROM user WHERE username = :user");
         $stmt->bindParam(":user", $user);
         $stmt->execute();
@@ -30,14 +31,19 @@ class Auth implements AuthPlugin
     }
 
     public function check_session($session_id){
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $auth_db->prepare("SELECT * FROM `session` WHERE id = :id AND expiration > :time_now AND backend = 'default_auth'");
         $stmt->bindValue(":time_now", time());
         $stmt->bindParam(":id", $session_id);
+        $stmt->execute();
         $found_session = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return count($found_session) > 0 ? $found_session : false;
     }
 
     public function create_session($user_id){
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $session_id = uniqid();
         $stmt = $auth_db->prepare("INSERT INTO `session` VALUES(:id, :uid, 'default_auth', :exp)");
         $stmt->bindValue(":exp", time()+$this->session_duration);
@@ -48,7 +54,9 @@ class Auth implements AuthPlugin
     }
 
     public function login($username, $password){
-        $user_id = check_credentials($username, $password);
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $user_id = $this->check_credentials($username, $password);
         if($user_id !== false){
             $session_id = $this->create_session($user_id);
             setcookie("gitcms_session", $session_id, time()+$this->session_duration);
@@ -56,13 +64,17 @@ class Auth implements AuthPlugin
         return $user_id;
     }
 
-    public function ger_user_info($session_id){
+    public function get_user_info($session_id){
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $auth_db->prepare("SELECT `name` as display_name FROM `session`, user WHERE backend='default_auth' AND `user_id` = username AND id = :id LIMIT 1");
         $stmt->bindParam(":id", $session_id);
         return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
     }
 
     public function add_user($username, $password, $name){
+        $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
+        $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $auth_db->prepare("INSERT INTO user VALUES (:id, :username, :password, :name)");
         $user_id = uniqid();
         $password_hash = password_hash($password, PASSWORD_BCRYPT);

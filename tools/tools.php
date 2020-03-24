@@ -1,9 +1,9 @@
 <?php
 define("DEFAULT_LOCALE", "en");
 function __($str){
-    $t_default_locale = json_decode(file_get_contents("../locales/".DEFAULT_LOCALE.".json"), true);
-    $t_conf = json_decode(file_get_contents("../conf.json"), true);
-    $t_locale = json_decode(file_get_contents("../locales/".$t_conf["locale"].".json"), true);
+    $t_default_locale = json_decode(file_get_contents(dirname(dirname(__FILE__))."/locales/".DEFAULT_LOCALE.".json"), true);
+    $t_conf = json_decode(file_get_contents(dirname(dirname(__FILE__))."/conf.json"), true);
+    $t_locale = json_decode(file_get_contents(dirname(dirname(__FILE__))."/locales/".$t_conf["locale"].".json"), true);
     return isset($t_locale[$str]) ? $t_locale[$str] : $t_default_locale[$str];
 }
 

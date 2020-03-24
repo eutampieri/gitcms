@@ -2,7 +2,7 @@
 
 include("tools/parsedown/Parsedown.php");
 
-// If this is the first run, init the posts repository
+// If this is the first run, go to the setup
 if(!is_dir("posts")){
     header("Location: setup/");
     die();
@@ -21,7 +21,7 @@ $conf = json_decode(file_get_contents("conf.json"), true);
 $locale = json_decode(file_get_contents("locales/".$conf["locale"].".json"), true);
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $conf["lang"];?>">
+<html lang="<?php echo $conf["locale"];?>">
 
 <head>
     <meta charset="UTF-8">

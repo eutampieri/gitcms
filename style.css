@@ -47,3 +47,12 @@ img.card-img-top{
         top: calc((1140px - 30px - 15em) / -2);
     }
 }
+
+h1{
+    text-align: center;
+    margin-bottom: .2em;
+}
+
+.container{
+    margin-bottom: 1em;
+}
