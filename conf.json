@@ -1,8 +1,8 @@
 {
-    "blog_title": "Blog title",
+    "blog_title": "gitCMS",
     "locale": "en",
-    "post_preview_number": 10,
-    "datetime_format": "%d/%m/%Y %H:%M",
+    "post_preview_number": "10",
+    "datetime_format": "%d\/%m\/%Y %H:%M",
     "header_links": {},
     "auth_plugin": "default_auth"
 }

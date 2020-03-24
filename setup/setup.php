@@ -22,7 +22,7 @@ switch ($_POST["post_storage"]) {
         exec("cd .. && mkdir posts && cd posts && git init");
         break;
     case 'remote':
-        passthru("cd .. && GIT_SSH=\"\$PWD/../ssh\" git clone ".$_POST["repo_url"]." posts");
+        passthru("cd .. && GIT_SSH=\"\$PWD/../tools/cli/ssh\" git clone ".$_POST["repo_url"]." posts");
     default:
         break;
 }

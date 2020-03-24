@@ -4,7 +4,7 @@ require_once("interface.php");
 $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
 $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $auth_init_queries = [
-    "CREATE TABLE IF NOT EXISTS user (id TEXT PRIMARY KEY, username TEXT, `password` TEXT, `name` TEXT);",
+    "CREATE TABLE IF NOT EXISTS user (username TEXT PRIMARY KEY, `password` TEXT, `name` TEXT);",
     "CREATE TABLE IF NOT EXISTS `session` (id TEXT, `user_id` TEXT, backend TEXT, expiration INT)"
 ];
 foreach($auth_init_queries as $qry){
@@ -38,7 +38,7 @@ class Auth implements AuthPlugin
         $stmt->bindParam(":id", $session_id);
         $stmt->execute();
         $found_session = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return count($found_session) > 0 ? $found_session : false;
+        return count($found_session) > 0 ? $found_session[0] : false;
     }
 
     public function create_session($user_id){
@@ -69,16 +69,15 @@ class Auth implements AuthPlugin
         $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $auth_db->prepare("SELECT `name` as display_name FROM `session`, user WHERE backend='default_auth' AND `user_id` = username AND id = :id LIMIT 1");
         $stmt->bindParam(":id", $session_id);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
     }
 
     public function add_user($username, $password, $name){
         $auth_db = new PDO("sqlite:".dirname(__FILE__)."/auth.db");
         $auth_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $auth_db->prepare("INSERT INTO user VALUES (:id, :username, :password, :name)");
-        $user_id = uniqid();
+        $stmt = $auth_db->prepare("INSERT INTO user VALUES (:username, :password, :name)");
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
-        $stmt->bindParam(":id", $user_id);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $user_id);
         $stmt->bindParam(":name", $name);

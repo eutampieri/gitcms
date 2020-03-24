@@ -8,7 +8,7 @@ $auth = new Auth();
 
 if(isset($_COOKIE["gitcms_session"])){
     if($auth->check_session($_COOKIE["gitcms_session"]) !== false){
-        header("Location: .");
+        header("Location: admin/");
         die();
     } else{
         $error = __("session-expired");
@@ -21,7 +21,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
         // If the login has failed
         $error = __("login-failed");
     } else{
-        header("Location: .");
+        header("Location: admin/");
         die();
     }
 }
